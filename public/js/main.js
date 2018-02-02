@@ -11,16 +11,15 @@ $("#clear").on('click', function() {
 
 let i = 0;
 $("#start").on('click', function(e) {
-	//console.log($("#conversation").val());
+	//Making ajax call to call in your app.js
 	$.ajax({
 		url: 'sendconvo',
 		type: 'POST',
-		//xheaders: {  'Access-Control-Allow-Origin': 'https://moodlewatson.mybluemix.net' },
 		data: $("#conversation-form").serialize(),
 		success: function(res, status, xhr){
 			console.log('SUCCESS');
+			// Parsing back a string into JSON in order to access its elements
 			var payload = JSON.parse(res.payload);
-			//console.log(payload.length);
 			if (payload.length > 1) {
 				if (payload[0] === "") {
 					$("#answer").append(payload[1] + "<br/>");
@@ -31,9 +30,6 @@ $("#start").on('click', function(e) {
 				$("#answer").append(payload+"<br/>");
 			}
 			$("#conversation").val("");
-			//$("#answer").append(status);
-			//$("#answer").append(xhr);
-			//$("#answer").html(res + "<br/>" + status + "<br/>" + xhr);
 		},
 		error: function(xhr, textStatus, error) {
 			console.log(xhr.statusText);
