@@ -10,7 +10,7 @@
   "author": "Minho Lee",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.19.0",
     "body-parser": "^1.17.2",
     "cfenv": "1.0.x",
     "circular-json": "^0.5.1",
